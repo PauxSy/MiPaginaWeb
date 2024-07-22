@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de autos en Miniatura BMW</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="script.js" defer></script>
+    <script>
+        function initMap() {
+            var coordinates = { lat: -33.46874036917492, lng: -70.63787852640536 };
+
+            // Opciones del mapa
+            var mapOptions = {
+                center: coordinates,
+                zoom: 15 // Nivel de zoom (1 = Mundo, 20 = Calle)
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: coordinates,
+                map: map,
+                title: 'Venta de Autos en Miniatura BMW' 
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="images/portada.jpg" alt="Imagen de la tienda" class="header-image">
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#products">Catalogo</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#cart" onclick="toggleCart()">Carrito (<span id="cart-count">0</span>)</a></li>
+                <li><a href="/login">Iniciar Sesión</a></li>
+                <li><a href="/register">Registrarse</a></li>
+            </ul>
+        </nav>
+
+    </header>
+        <div class="separador"><br></div>
+
+
+    
+    <main>
+        <h1>Bienvenidos a Nuestra Tienda Autos en Miniatura BMW</h1>
+
+        <div id="products">
+            <h2>Vehículos disponibles</h2>
+            <div class="filters">
+                <label for="category">Categoría:</label>
+                <select id="category" onchange="filterProducts()">
+                    <option value="all">Todos</option>
+                    <option value="Gama Alta">Gama Alta</option>
+                    <option value="Gama media">Gama media</option>
+
+                </select>
+            </div>
+            <div class="gallery" id="product-list">
+                <div class="gallery-item" data-category="Gama Alta" onclick="showDetails(1)">
+                    <img src="images/1.jpg" alt="Artículo 1">
+                    <p class="titulo">BMW 520D 2.0 HERITAGE<br>Precio $34.990</p>
+                    <p>2021| 36.840 km | Diesel | Automática</p>
+                    <button onclick="addToCart(event, 'BMW 520D 2.0 HERITAGE', 34990)">Agregar al carrito</button>
+                </div>
+                <div class="gallery-item" data-category="Gama media" onclick="showDetails(2)">
+                    <img src="images/2.jpg" alt="Artículo 2">
+                    <p class="titulo">BMW X5 3.0 X-DRIVE 35I<br>Precio $23.900</p>
+                    <p>2016 | 95.000 km | Gasolina | Automática</p>
+                    <button onclick="addToCart(event, 'BMW X5 3.0 X-DRIVE 35I', 23900)">Agregar al carrito</button>
+                </div>
+                <div class="gallery-item" data-category="Gama media" onclick="showDetails(3)">
+                    <img src="images/3.jpg" alt="Artículo 3">
+                    <p class="titulo">BMW 640 I 3.0 <br>Precio $24.500</p>
+                    <p>2015 | 66.085 km | Gasolina | Automática</p>
+                    <button onclick="addToCart(event, 'BMW 640 I 3.0', 24500)">Agregar al carrito</button>
+                </div>
+                <div class="gallery-item" data-category="Gama Alta" onclick="showDetails(4)">
+                    <img src="images/4.jpg" alt="Artículo 4">
+                    <p class="titulo">BMW X6 3.0 X-DRIVE 30D<br>Precio $37.900</p>
+                    <p>2019 | 77.132 km | Diesel | Automática</p>
+                    <button onclick="addToCart(event, 'BMW X6 3.0 X-DRIVE 30D', 37900)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="contact">
+                <br>
+                <br>
+                <h2 class="contactanos">Contáctanos</h2>
+                <p>WhatsApp &nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" color="green" width="20" height="20" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                  </svg> +56 9 123 5678</p>
+
+                  <p>Dirección: Ñuble 554, Santiago, Región Metropolitana, Chile</p>
+                  <br>
+                  <br>
+                <form id="contact-form" onsubmit="return validateForm()">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Enviar</button>
+                
+                    <br>
+                    <br>
+                </form>
+            </div>
+            <div id="map"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Tienda de Vehiculos en Miniatura. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <!-- Carrito -->
+    <div id="cart" class="cart">
+        <div class="cart-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total"></p>
+            <button onclick="checkout()">Realizar Pedido</button>
+        </div>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q_AjokG8Apjwk8pjh5vAUd4Bb1nx2Ac&callback=initMap"></script>
+
+</body>
+</html>

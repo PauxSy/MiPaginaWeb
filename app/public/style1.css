@@ -1,0 +1,357 @@
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    background-image: url(images/fondo.jpg);
+    background-repeat: inherit;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: #45a049;
+    background-color: rgb(0, 0, 0);
+}
+
+
+header img.header-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /*mantiene proporcion de imagen*/
+
+}
+
+nav {
+    background-image: linear-gradient(to bottom, black, rgb(52, 52, 52));
+    position: absolute;
+    top: 0; 
+    width: 100%;
+    border-style: outset;
+    border-color: black;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.filters {
+    color: white;
+}
+
+div h2 {
+    margin-bottom: 40px;
+    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#products {
+    margin-bottom: 40px;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(25% - 40px);
+    box-sizing: border-box;
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-color: rgb(215, 214, 214);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.gallery-item p {
+    margin: 10px 0 0;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #939395;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.gallery-item button:hover {
+    background-color: #0425ff;
+}
+
+#contact {
+    background-image: url(images/fondo2.jpg);
+    background-repeat: inherit;
+    border-radius: 20px 0px 0px 20px;
+    box-shadow: 5px 5px 5px black;
+    margin: 50px 0px 300px 250px;
+    width: 50%; /* Ancho del formulario */
+    padding: 5px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo para demostración */
+    border: 1px solid #585656; /* Borde para demostración */
+
+}
+
+.container {
+            display: flex; /* Utiliza flexbox para el diseño */
+            justify-content: flex-start;
+            align-items: flex-start; /* Alinea los elementos en la parte superior del contenedor */
+            margin: 0;
+
+        }
+
+.contactanos{
+    color: green;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#contact-form label {
+    font-weight: bold;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px 20px;
+    background-color: #878891;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #1500ff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+   
+}
+/* Carrito Styles */
+.cart {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.cart-content {
+    padding: 20px;
+}
+
+.cart .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart .close:hover,
+.cart .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#cart-total {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.separador {
+    background-image: linear-gradient(to top,rgb(38, 38, 38),rgb(24, 23, 23),rgb(0, 0, 0));
+    display: inline-block;
+    vertical-align: top;    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.titulo {
+    font-weight: bold;
+}
+
+#contact h2 {
+    color: #fffad2;
+    text-shadow: 1px 1px 1px black;
+
+}
+
+#contact form{
+    color: rgb(255, 252, 218);
+
+}
+
+.menu{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    text-decoration: solid;
+    text-shadow: 2px 2px 2px black;
+}
+
+#map {
+    width: 45%; /* Ancho del mapa */
+    height: 570px; /* Altura del mapa */
+    background-color: #f2f2f2; /* Color de fondo para demostración */
+    border: 1px solid #ccc; /* Borde para demostración */
+    margin-top: 50px;
+    margin-right: 200px;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 0;
+
+}
+
+#contact p{
+    color: white;
+
+}
+
+.cart h2{
+    background-color: black;
+}
+
+.cart {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart.show {
+    display: block;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item button {
+    background: rgb(0, 0, 255);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
